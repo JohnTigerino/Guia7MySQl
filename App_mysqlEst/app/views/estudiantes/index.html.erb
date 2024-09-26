@@ -1,0 +1,36 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Estudiantes" %>
+
+<h1>Lista de Estudiantes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombres</th>
+      <th>Apellidos</th>
+      <th>Carrera</th>
+      <th>Carnet</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @estudiantes.each do |estudiante| %>
+      <tr>
+        <td><%= estudiante.nombres %></td>
+        <td><%= estudiante.apellidos %></td>
+        <td><%= estudiante.carrera %></td>
+        <td><%= estudiante.carnet %></td>
+        <td><%= link_to 'Mostrar', estudiante, class: 'btn' %></td>
+        <td><%= link_to 'Editar', edit_estudiante_path(estudiante), class: 'btn' %></td>
+        <td><%= link_to 'Eliminar', estudiante, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Nuevo Estudiante', new_estudiante_path, class: 'btn' %>
+
+
+<%= link_to "New estudiante", new_estudiante_path %>

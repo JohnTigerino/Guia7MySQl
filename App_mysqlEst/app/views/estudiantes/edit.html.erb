@@ -1,0 +1,41 @@
+<h1>Editar Estudiante</h1>
+
+<%= form_with(model: @estudiante, local: true) do |form| %>
+  <% if @estudiante.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@estudiante.errors.count, "error") %> impide que se guarde el estudiante:</h2>
+
+      <ul>
+        <% @estudiante.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombres %><br>
+    <%= form.text_field :nombres, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :apellidos %><br>
+    <%= form.text_field :apellidos, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :carrera %><br>
+    <%= form.text_field :carrera, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :carnet %><br>
+    <%= form.text_field :carnet, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Actualizar Estudiante", class: 'btn' %>
+  </div>
+<% end %>
+
+<%= link_to 'Volver', estudiantes_path, class: 'btn' %>
